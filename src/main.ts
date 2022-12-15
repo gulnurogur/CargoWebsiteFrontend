@@ -33,11 +33,13 @@ import {
     faHashtag,
     faArrowsRotate,
     faChevronRight,
-    faChevronLeft
+    faChevronLeft,
+
 } from '@fortawesome/free-solid-svg-icons'
 
 library.add(faTruck, faList, faUserPlus, faPlus, faPaperPlane, faPenToSquare, faTrash, faUpRightAndDownLeftFromCenter,
-    faArrowsLeftRight, faArrowsUpDown, faWeightHanging, faCube, faCircle, faSquare, faHashtag, faArrowsRotate, faChevronRight, faChevronLeft)
+    faArrowsLeftRight, faArrowsUpDown, faWeightHanging, faCube, faCircle, faSquare, faHashtag, faArrowsRotate,
+    faChevronRight, faChevronLeft)
 
 
 const router = createRouter({

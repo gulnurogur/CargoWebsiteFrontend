@@ -93,6 +93,18 @@ const personStore = usePersonState();
           </div>
         </div>
 
+        <div class="row">
+          <div class="col-3">
+            <label for="fagirlik">Ağırlık</label>
+          </div>
+          <div class="col-9">
+            <input type="number" id="fagirlik" name="agirlik" v-if="cargoStore.selectedCargo === null"
+                   placeholder="Ağırlık giriniz">
+            <input type="number" id="fagirlik" name="agirlik" v-else
+                   :placeholder="'Şuan ki agırlık: ' + cargoStore.selectedCargo.kargo_agirlik + ' kg'">
+          </div>
+        </div>
+
 
 
         <!--
