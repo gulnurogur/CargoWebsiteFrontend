@@ -4,6 +4,9 @@
 
 import KargoListesiComponent from "@/components/KargoListesiComponent.vue";
 import DuzenlemeComponent from "@/components/DuzenlemeComponent.vue";
+
+import KargoEklemeComponent from "@/components/KargoEklemeComponent.vue";
+import KisiEklemeComponent from "@/components/KisiEklemeComponent.vue";
 </script>
 
 <template>
@@ -26,6 +29,11 @@ import DuzenlemeComponent from "@/components/DuzenlemeComponent.vue";
   <KargoListesiComponent></KargoListesiComponent>
   <br class="space">
   <DuzenlemeComponent></DuzenlemeComponent>
+  <br class="space">
+  <KargoEklemeComponent></KargoEklemeComponent>
+  <br class="space">
+
+  <KisiEklemeComponent></KisiEklemeComponent>
 
 
 </template>
