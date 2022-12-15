@@ -21,7 +21,7 @@ const personStore = usePersonState();
         <div class="col-9">
           <select name="fgonderici">
             <option selected="selected" value="">Değiştirmek için seçim yapın</option>
-            <option v-for="kisi in personStore.persons" :value="kisi[0]"> {{ kisi[1] }}</option>
+            <option v-for="kisi in personStore.persons" :value="kisi.kisi_id"> {{ kisi.kisi_ad + ' ' + kisi.kisi_soyad}}</option>
           </select>
         </div>
       </div>
@@ -33,7 +33,7 @@ const personStore = usePersonState();
 
           <select name="falici">
             <option selected="selected" value="">Değiştirmek için seçim yapın</option>
-            <option v-for="kisi in personStore.persons" :value="kisi[0]"> {{ kisi[1] }}</option>
+            <option v-for="kisi in personStore.persons" :value="kisi.kisi_id"> {{ kisi.kisi_ad + ' ' + kisi.kisi_soyad }}</option>
           </select>
         </div>
       </div>
@@ -63,14 +63,6 @@ const personStore = usePersonState();
         </div>
       </div>
 
-      <div class="row">
-        <div class="col-3">
-          <label for="fagirlik">Ağırlık</label>
-        </div>
-        <div class="col-9">
-          <input type="number" placeholder="Ağırlık Giriniz">
-        </div>
-      </div>
       <div class="right">
         <button class="btn"><font-awesome-icon icon="fa-solid fa-paper-plane" /> Yolla</button>
       </div>

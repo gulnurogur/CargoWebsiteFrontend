@@ -1,5 +1,6 @@
 import {defineStore} from "pinia";
 import {useLoadingState} from "@/stores/loading_state";
+import axios from "axios";
 
 
 export const usePersonState = defineStore('kisi',
@@ -11,20 +12,18 @@ export const usePersonState = defineStore('kisi',
             yukle() {
                 const load = useLoadingState();
                 load.yuklemeyeBasla()
-                setTimeout(() => {
-                    this.persons = [
-                        [1, "Ali Eren Ekinci"],
-                        [2, "Osman Baki Ekinci"],
-                        [3, "Gülnur Ögür"]
-                    ];
+                axios.get('http://127.0.0.1:5000/api/v1/kisi/').then((response) => {
+                    this.persons = response.data;
                     load.yuklemeyiBitir()
-                }, 200)
+                })
+
 
             },
             kisiBul(id) {
                 for (let i = 0; i < this.persons.length; i++) {
-                    if (this.persons[i][0] === id){
-                        return this.persons[i][1]
+
+                    if (this.persons[i].kisi_id === id){
+                        return this.persons[i].kisi_ad + " " + this.persons[i].kisi_soyad
                     }
                 }
             },

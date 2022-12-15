@@ -37,20 +37,20 @@ personStore.yukle()
             <th><font-awesome-icon icon="fa-solid fa-arrows-left-right" /> En</th>
             <th><font-awesome-icon icon="fa-solid fa-up-right-and-down-left-from-center" />  Genişlik</th>
             <th><font-awesome-icon icon="fa-solid fa-arrows-up-down" /> Yükseklik</th>
-            <th><font-awesome-icon icon="fa-solid fa-weight-hanging" /> Ağırlık</th>
             <th><font-awesome-icon icon="fa-solid fa-cube" /> Desi</th>
             <th><button class="btn white right" @click="cargoStore.yukle()"><font-awesome-icon icon="fa-solid fa-arrows-rotate" /> Yenile</button></th>
           </tr>
           <div class="col-12" v-if="cargoStore.kargolar.length === 0">Kargo Bulunamadı kargo eklenmesi gerekiyor.</div>
           <tr v-for="kargo in cargoStore.kargolar">
-            <td>{{ kargo[0] }}</td>
-            <td>{{ personStore.kisiBul(kargo[1]) }}</td>
-            <td>{{ personStore.kisiBul(kargo[2]) }}</td>
-            <td>{{ kargo[3] }} cm</td>
-            <td>{{ kargo[4] }} cm</td>
-            <td>{{ kargo[5] }} cm</td>
-            <td>{{ kargo[6] }} kg</td>
-            <td>{{ desiHesapla(kargo[3], kargo[4], kargo[5])}}</td>
+
+            <td>{{ kargo["kargo_id"] }}</td>
+            <td>{{ personStore.kisiBul(kargo["kargo_gonderici_id"]) }}</td>
+            <td>{{ personStore.kisiBul(kargo["kargo_alici_id"]) }}</td>
+            <td>{{ kargo["kargo_en"] }} cm</td>
+            <td>{{ kargo["kargo_boy"] }} cm</td>
+            <td>{{ kargo["kargo_yukseklik"] }} cm</td>
+            <!-- <td>{{ kargo["kargo_agirlik"] }} kg</td> -->
+            <td>{{ desiHesapla(kargo["kargo_en"], kargo["kargo_boy"], kargo["kargo_yukseklik"])}}</td>
             <td class="right">
               <button class="btn" @click="cargoStore.selectedCargo=kargo"><font-awesome-icon icon="fa-solid fa-pen-to-square" /> Düzenle</button>
               /

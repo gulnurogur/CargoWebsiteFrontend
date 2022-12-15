@@ -1,5 +1,6 @@
 import {defineStore} from "pinia";
 import {useLoadingState} from "@/stores/loading_state";
+import axios from "axios";
 
 
 export const useCargoState = defineStore('cargo',
@@ -14,16 +15,10 @@ export const useCargoState = defineStore('cargo',
 
                 load.yuklemeyeBasla();
                 this.selectedCargo = null;
-                setTimeout(() => {
-                    this.kargolar = [
-                        [1, 1, 2, 13, 10, 23, 4],
-                        [2, 2, 1, 100, 30, 3, 1],
-                        [3, 1, 2, 70, 33, 2, 1],
-                        [4, 2, 3, 30, 93, 28, 12],
-                        [5, 3, 1, 60, 33, 28, 12]
-                    ];
+                axios.get('http://127.0.0.1:5000/api/v1/kargo/').then((response) => {
+                    this.kargolar = response.data;
                     load.yuklemeyiBitir()
-                }, 1000);
+                })
             },
 
         }

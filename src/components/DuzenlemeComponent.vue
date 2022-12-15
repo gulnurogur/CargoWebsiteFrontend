@@ -30,11 +30,11 @@ const personStore = usePersonState();
             -->
 
             <select name="fgonderici">
-              <option selected="selected" :value="cargoStore.selectedCargo[0]">
-                {{ personStore.kisiBul(cargoStore.selectedCargo[1]) }} -- Değiştirmek için seçim yapın
+              <option selected="selected" :value="cargoStore.selectedCargo.kargo_gonderici_id">
+                {{ personStore.kisiBul(cargoStore.selectedCargo.kargo_gonderici_id) }} -- Değiştirmek için seçim yapın
               </option>
 
-              <option v-for="kisi in personStore.persons" :value="kisi[0]"> {{ kisi[1] }}</option>
+              <option v-for="kisi in personStore.persons" :value="kisi.kisi_id"> {{ kisi.kisi_ad + ' ' + kisi.kisi_soyad  }}</option>
 
 
             </select>
@@ -51,10 +51,11 @@ const personStore = usePersonState();
             -->
 
             <select name="falici">
-              <option selected="selected" :value="cargoStore.selectedCargo[2]">
-                {{ personStore.kisiBul(cargoStore.selectedCargo[2]) }} -- Değiştirmek için seçim yapın
+
+              <option selected="selected" :value="cargoStore.selectedCargo.kargo_alici_id">
+                {{ personStore.kisiBul(cargoStore.selectedCargo.kargo_alici_id) }} -- Değiştirmek için seçim yapın
               </option>
-              <option v-for="kisi in personStore.persons" :value="kisi[1]"> {{ kisi[1] }}</option>
+              <option v-for="kisi in personStore.persons" :value="kisi.kisi_id"> {{ kisi.kisi_ad + ' ' + kisi.kisi_soyad }}</option>
             </select>
           </div>
         </div>
@@ -65,18 +66,7 @@ const personStore = usePersonState();
           <div class="col-9">
             <input type="number" id="fen" name="en" v-if="cargoStore.selectedCargo === null" placeholder="En Giriniz">
             <input type="number" id="fen" name="en" v-else
-                   :placeholder="'Şuan ki en: ' + cargoStore.selectedCargo[3] + ' cm'">
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-3">
-            <label for="fyukseklik">Yükseklik</label>
-          </div>
-          <div class="col-9">
-            <input type="number" id="fyukseklik" name="yukseklik" v-if="cargoStore.selectedCargo === null"
-                   placeholder="Yükseklik Giriniz">
-            <input type="number" id="fyukseklik" name="yukseklik" v-else
-                   :placeholder=" 'Şuan ki yükseklik: ' + cargoStore.selectedCargo[4] + ' cm'">
+                   :placeholder="'Şuan ki en: ' + cargoStore.selectedCargo.kargo_en + ' cm'">
           </div>
         </div>
         <div class="row">
@@ -87,20 +77,23 @@ const personStore = usePersonState();
             <input type="number" id="fgenislik" name="genislik" v-if="cargoStore.selectedCargo === null"
                    placeholder="Genişlik Giriniz">
             <input type="number" id="fgenislik" name="genislik" v-else
-                   :placeholder="'Şuan ki genişlik: ' +cargoStore.selectedCargo[5] + ' cm'">
+                   :placeholder="'Şuan ki genişlik: ' +cargoStore.selectedCargo.kargo_boy + ' cm'">
           </div>
         </div>
+
         <div class="row">
           <div class="col-3">
-            <label for="fagirlik">Ağırlık</label>
+            <label for="fyukseklik">Yükseklik</label>
           </div>
           <div class="col-9">
-            <input type="number" id="fagirlik" name="agirlik" v-if="cargoStore.selectedCargo === null"
-                   placeholder="Ağırlık giriniz">
-            <input type="number" id="fagirlik" name="agirlik" v-else
-                   :placeholder="'Şuan ki agırlık: ' + cargoStore.selectedCargo[6] + ' kg'">
+            <input type="number" id="fyukseklik" name="yukseklik" v-if="cargoStore.selectedCargo === null"
+                   placeholder="Yükseklik Giriniz">
+            <input type="number" id="fyukseklik" name="yukseklik" v-else
+                   :placeholder=" 'Şuan ki yükseklik: ' + cargoStore.selectedCargo.kargo_yukseklik + ' cm'">
           </div>
         </div>
+
+
 
         <!--
         <div class="row">
