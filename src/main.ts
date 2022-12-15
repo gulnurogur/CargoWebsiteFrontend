@@ -1,11 +1,56 @@
-import { createApp } from 'vue'
-import { createPinia } from 'pinia'
+import {createApp} from 'vue'
+import {createPinia} from 'pinia'
 import App from './App.vue'
+import {createRouter, createWebHistory} from 'vue-router'
+
+import {library} from '@fortawesome/fontawesome-svg-core'
+import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome'
+import KargoListesiComponent from "@/components/KargoListesiComponent.vue";
+import KargoEklemeComponent from "@/components/KargoEklemeComponent.vue";
+import KisiEklemeComponent from "@/components/KisiEklemeComponent.vue";
+
 
 import './assets/main.css'
 
+
+/* İcon */
+
+import {
+    faTruck,
+    faList,
+    faUserPlus,
+    faPlus,
+    faPaperPlane,
+    faPenToSquare,
+    faTrash,
+    faUpRightAndDownLeftFromCenter,
+    faArrowsLeftRight,
+    faArrowsUpDown,
+    faWeightHanging,
+    faCube,
+    faCircle,
+    faSquare,
+    faHashtag,
+    faArrowsRotate,
+    faChevronRight,
+    faChevronLeft
+} from '@fortawesome/free-solid-svg-icons'
+
+library.add(faTruck, faList, faUserPlus, faPlus, faPaperPlane, faPenToSquare, faTrash, faUpRightAndDownLeftFromCenter,
+    faArrowsLeftRight, faArrowsUpDown, faWeightHanging, faCube, faCircle, faSquare, faHashtag, faArrowsRotate, faChevronRight, faChevronLeft)
+
+
+const router = createRouter({
+    history: createWebHistory(),
+    routes: [
+        {path: '/', component: KargoListesiComponent},
+        {path: '/kargo-ekle', component: KargoEklemeComponent},
+        {path: '/kisi-ekle', component: KisiEklemeComponent}
+    ]
+});
+
 const app = createApp(App)
-
-app.use(createPinia())
-
+    .use(createPinia())
+    .use(router)
+    .component('font-awesome-icon', FontAwesomeIcon)
 app.mount('#app')

@@ -1,12 +1,6 @@
 <script setup lang="ts">
 
 
-
-import KargoListesiComponent from "@/components/KargoListesiComponent.vue";
-import DuzenlemeComponent from "@/components/DuzenlemeComponent.vue";
-
-import KargoEklemeComponent from "@/components/KargoEklemeComponent.vue";
-import KisiEklemeComponent from "@/components/KisiEklemeComponent.vue";
 </script>
 
 <template>
@@ -14,26 +8,20 @@ import KisiEklemeComponent from "@/components/KisiEklemeComponent.vue";
     <div class="col-1 col-s-3"></div>
     <div class="col-10 col-s-6">
       <div class="left">
-        <a class="active" href="#home">Kargo Otomasyonu</a>
+        <router-link to="/"><font-awesome-icon icon="fa-solid fa-truck" /> Kargo Otomasyonu</router-link>
       </div>
       <div class="right">
-        <a class="active" href="#kargolar">Kargolar</a>
-        <a href="#duzenle">Düzenle</a>
-        <a href="">Kargo Ekle</a>
-        <a href="">Kişi Ekle</a>
+
+        <router-link to="/"><font-awesome-icon icon="fa-solid fa-list" /> Kargolar</router-link>
+        <router-link to="/kargo-ekle"><font-awesome-icon icon="fa-solid fa-plus" /> Kargo Ekle</router-link>
+        <router-link to="/kisi-ekle"><font-awesome-icon icon="fa-solid fa-user-plus" /> Kişi Ekle</router-link>
       </div>
     </div>
     <div class="col-1 col-s-3"></div>
 
   </div>
-  <KargoListesiComponent></KargoListesiComponent>
-  <br class="space">
-  <DuzenlemeComponent></DuzenlemeComponent>
-  <br class="space">
-  <KargoEklemeComponent></KargoEklemeComponent>
-  <br class="space">
+  <router-view></router-view>
 
-  <KisiEklemeComponent></KisiEklemeComponent>
 
 
 </template>

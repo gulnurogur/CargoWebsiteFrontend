@@ -51,7 +51,7 @@
         </div>
       </div>
       <div class="right">
-        <button class="btn">Yolla</button>
+        <button class="btn"><font-awesome-icon icon="fa-solid fa-paper-plane" /> Yolla</button>
       </div>
 
     </div>

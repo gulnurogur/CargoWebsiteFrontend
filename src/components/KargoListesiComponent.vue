@@ -1,5 +1,6 @@
 <script setup>
 
+import DuzenlemeComponent from "@/components/DuzenlemeComponent.vue";
 import {reactive} from "vue";
 import {useLoadingState} from "@/stores/loading_state";
 import {useCargoState} from "@/stores/cargo_state";
@@ -30,15 +31,15 @@ personStore.yukle()
 
         <table>
           <tr>
-            <th> #</th>
-            <th>Gönderici</th>
-            <th>Alıcı</th>
-            <th>En</th>
-            <th>Genişlik</th>
-            <th>Yükseklik</th>
-            <th>Ağırlık</th>
-            <th>Desi</th>
-            <th><button class="btn white right" @click="cargoStore.yukle()">Yenile</button></th>
+            <th> <font-awesome-icon icon="fa-solid fa-hashtag" /></th>
+            <th><font-awesome-icon icon="fa-solid fa-circle" /> Gönderici</th>
+            <th><font-awesome-icon icon="fa-solid fa-square" /> Alıcı</th>
+            <th><font-awesome-icon icon="fa-solid fa-arrows-left-right" /> En</th>
+            <th><font-awesome-icon icon="fa-solid fa-up-right-and-down-left-from-center" />  Genişlik</th>
+            <th><font-awesome-icon icon="fa-solid fa-arrows-up-down" /> Yükseklik</th>
+            <th><font-awesome-icon icon="fa-solid fa-weight-hanging" /> Ağırlık</th>
+            <th><font-awesome-icon icon="fa-solid fa-cube" /> Desi</th>
+            <th><button class="btn white right" @click="cargoStore.yukle()"><font-awesome-icon icon="fa-solid fa-arrows-rotate" /> Yenile</button></th>
           </tr>
           <div class="col-12" v-if="cargoStore.kargolar.length === 0">Kargo Bulunamadı kargo eklenmesi gerekiyor.</div>
           <tr v-for="kargo in cargoStore.kargolar">
@@ -51,16 +52,16 @@ personStore.yukle()
             <td>{{ kargo[6] }} kg</td>
             <td>{{ desiHesapla(kargo[3], kargo[4], kargo[5])}}</td>
             <td class="right">
-              <button class="btn" @click="cargoStore.selectedCargo=kargo">Düzenle</button>
+              <button class="btn" @click="cargoStore.selectedCargo=kargo"><font-awesome-icon icon="fa-solid fa-pen-to-square" /> Düzenle</button>
               /
-              <button class="btn red"><a href="">Sil</a></button>
+              <button class="btn red"><a href=""><font-awesome-icon icon="fa-solid fa-trash" /> Sil</a></button>
             </td>
           </tr>
         </table>
         <br class="space">
 
-        <button class="btn"><a href="">Önceki</a></button>
-        <button class="btn">Sonraki</button>
+        <button class="btn"><a href=""><font-awesome-icon icon="fa-solid fa-chevron-left" /> Önceki</a></button>
+        <button class="btn">Sonraki <font-awesome-icon icon="fa-solid fa-chevron-right" /></button>
         <br class="space">
 
 
@@ -69,7 +70,7 @@ personStore.yukle()
     <div class="col-1"></div>
   </div>
 
-
+  <DuzenlemeComponent></DuzenlemeComponent>
 </template>
 
 
