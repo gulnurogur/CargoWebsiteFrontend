@@ -1,6 +1,6 @@
 <script setup>
 
-import DuzenlemeComponent from "@/components/DuzenlemeComponent.vue";
+import KargoDuzenlemeComponent from "@/components/KargoDuzenlemeComponent.vue";
 import {reactive} from "vue";
 import {useLoadingState} from "@/stores/loading_state";
 import {useCargoState} from "@/stores/cargo_state";
@@ -17,6 +17,10 @@ function desiHesapla(en, boy, yukseklik){
 cargoStore.yukle()
 personStore.yukle()
 
+function deleteCargo(kargo_id){
+  cargoStore.kargoSil(kargo_id)
+}
+
 </script>
 
 <template>
@@ -28,6 +32,7 @@ personStore.yukle()
       <div class="col-12">
         <h1>Kargolar</h1>
         <hr class="style">
+
 
         <table>
           <tr>
@@ -53,9 +58,9 @@ personStore.yukle()
             <td>{{ kargo["kargo_agirlik"] }} kg</td>
             <td>{{ desiHesapla(kargo["kargo_en"], kargo["kargo_boy"], kargo["kargo_yukseklik"])}}</td>
             <td class="right">
-              <button class="btn" @click="cargoStore.selectedCargo=kargo"><font-awesome-icon icon="fa-solid fa-pen-to-square" /> Düzenle</button>
+                <button class="btn" @click="cargoStore.selectedCargo=kargo" ><font-awesome-icon icon="fa-solid fa-pen-to-square" /> Düzenle</button>
               /
-              <button class="btn red"><a href=""><font-awesome-icon icon="fa-solid fa-trash" /> Sil</a></button>
+              <button class="btn red" @click="deleteCargo(kargo)"><font-awesome-icon icon="fa-solid fa-trash" /> Sil</button>
             </td>
           </tr>
         </table>
@@ -70,8 +75,8 @@ personStore.yukle()
     </div>
     <div class="col-1"></div>
   </div>
+  <KargoDuzenlemeComponent></KargoDuzenlemeComponent>
 
-  <DuzenlemeComponent></DuzenlemeComponent>
 </template>
 
 

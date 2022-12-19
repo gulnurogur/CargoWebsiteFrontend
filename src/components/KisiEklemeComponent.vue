@@ -1,5 +1,30 @@
 <script setup>
 
+import {usePersonState} from "@/stores/person_state";
+import {ref} from "vue";
+
+const personStore = usePersonState();
+personStore.yukle()
+
+const eklenecek_kisi = ref({
+  kisi_ad: "",
+  kisi_soyad: "",
+  telefon: "",
+  email: "",
+  adres: "",
+
+});
+
+function kaydet() {
+  personStore.kisiEkle(eklenecek_kisi.value);
+  eklenecek_kisi.value = {
+    kisi_ad: "",
+    kisi_soyad: "",
+    telefon: "",
+    email: "",
+    adres: "",
+  };
+}
 
 </script>
 
@@ -14,7 +39,7 @@
           <label for="fadi">Adı</label>
         </div>
         <div class="col-9">
-          <input type="text" placeholder="Müşteri Adını Giriniz">
+          <input type="text" placeholder="Müşteri Adını Giriniz" v-model="eklenecek_kisi.kisi_ad">
         </div>
       </div>
       <div class="row">
@@ -22,7 +47,7 @@
           <label for="fsoyad">Soyad</label>
         </div>
         <div class="col-9">
-          <input type="text" placeholder="Müşterinin Soyadını Giriniz">
+          <input type="text" placeholder="Müşterinin Soyadını Giriniz" v-model="eklenecek_kisi.kisi_soyad">
         </div>
       </div>
 
@@ -31,7 +56,7 @@
           <label for="ftelefon">Telefon</label>
         </div>
         <div class="col-9">
-          <input type="text" placeholder="Müşterinin Telefonunu Giriniz">
+          <input type="text" placeholder="Müşterinin Telefonunu Giriniz" v-model="eklenecek_kisi.telefon">
         </div>
       </div>
       <div class="row">
@@ -39,7 +64,7 @@
           <label for="femail">Email</label>
         </div>
         <div class="col-9">
-          <input type="text" placeholder="Müşterinin Emailini Giriniz">
+          <input type="text" placeholder="Müşterinin Emailini Giriniz" v-model="eklenecek_kisi.email">
         </div>
       </div>
       <div class="row">
@@ -47,11 +72,11 @@
           <label for="fadres">Adres</label>
         </div>
         <div class="col-9">
-          <input type="text" placeholder="Müşterinin Adresini Giriniz">
+          <textarea placeholder="Müşterinin Adresini Giriniz" rows="6" v-model="eklenecek_kisi.adres"></textarea>
         </div>
       </div>
       <div class="right">
-        <button class="btn"><font-awesome-icon icon="fa-solid fa-paper-plane" /> Yolla</button>
+        <button class="btn" @click="kaydet"><font-awesome-icon icon="fa-solid fa-paper-plane" /> Yolla</button>
       </div>
 
     </div>

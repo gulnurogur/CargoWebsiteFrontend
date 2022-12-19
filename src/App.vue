@@ -14,6 +14,7 @@
 
         <router-link to="/"><font-awesome-icon icon="fa-solid fa-list" /> Kargolar</router-link>
         <router-link to="/kargo-ekle"><font-awesome-icon icon="fa-solid fa-plus" /> Kargo Ekle</router-link>
+        <router-link to="/kisiler"><font-awesome-icon icon="fa-solid fa-users" /> Kişiler</router-link>
         <router-link to="/kisi-ekle"><font-awesome-icon icon="fa-solid fa-user-plus" /> Kişi Ekle</router-link>
       </div>
     </div>

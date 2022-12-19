@@ -3,17 +3,6 @@ import {createPinia} from 'pinia'
 import App from './App.vue'
 import {createRouter, createWebHistory} from 'vue-router'
 
-import {library} from '@fortawesome/fontawesome-svg-core'
-import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome'
-import KargoListesiComponent from "@/components/KargoListesiComponent.vue";
-import KargoEklemeComponent from "@/components/KargoEklemeComponent.vue";
-import KisiEklemeComponent from "@/components/KisiEklemeComponent.vue";
-
-
-import './assets/main.css'
-
-
-/* İcon */
 
 import {
     faTruck,
@@ -34,12 +23,31 @@ import {
     faArrowsRotate,
     faChevronRight,
     faChevronLeft,
+    faPhone,
+    faInbox,
+    faMapLocationDot,
+    faUsers
 
 } from '@fortawesome/free-solid-svg-icons'
 
+import './assets/main.css'
+
+import {library} from '@fortawesome/fontawesome-svg-core'
+import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome'
+import KargoListesiComponent from "@/components/KargoListesiComponent.vue";
+import KisiListesiComponent from "@/components/KisiListesiComponent.vue";
+import KargoEklemeComponent from "@/components/KargoEklemeComponent.vue";
+import KisiEklemeComponent from "@/components/KisiEklemeComponent.vue";
+
+
+
+
+
+
+
 library.add(faTruck, faList, faUserPlus, faPlus, faPaperPlane, faPenToSquare, faTrash, faUpRightAndDownLeftFromCenter,
     faArrowsLeftRight, faArrowsUpDown, faWeightHanging, faCube, faCircle, faSquare, faHashtag, faArrowsRotate,
-    faChevronRight, faChevronLeft)
+    faChevronRight, faChevronLeft, faPhone, faInbox, faMapLocationDot, faUsers)
 
 
 const router = createRouter({
@@ -47,7 +55,9 @@ const router = createRouter({
     routes: [
         {path: '/', component: KargoListesiComponent},
         {path: '/kargo-ekle', component: KargoEklemeComponent},
-        {path: '/kisi-ekle', component: KisiEklemeComponent}
+        {path: '/kisiler', component: KisiListesiComponent},
+        {path: '/kisi-ekle', component: KisiEklemeComponent},
+
     ]
 });
 

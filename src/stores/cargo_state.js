@@ -20,6 +20,27 @@ export const useCargoState = defineStore('cargo',
                     load.yuklemeyiBitir()
                 })
             },
+            kargoEkle(kargo) {
+                axios.post('http://127.0.0.1:5000/api/v1/kargo/', kargo).then((response) => {
+                    const kargo = response.data;
+                    console.log(kargo);
+                    this.yukle();
+                })
+            },
+            kargoDuzenle(kargo, kargo_id) {
+                axios.put('http://127.0.0.1:5000/api/v1/kargo/' + kargo_id, kargo).then((response) => {
+                    const kargo = response.data;
+                    console.log(kargo);
+                    this.yukle();
+                })
+            },
+            kargoSil(kargo) {
 
+                axios.delete('http://127.0.0.1:5000/api/v1/kargo/' + kargo["kargo_id"]).then((response) => {
+                    const kargo = response.data;
+                    console.log(kargo);
+                    this.yukle();
+                })
+            }
         }
     });
